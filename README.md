@@ -1,59 +1,53 @@
-# [JSL06] Submission: CodeCuisine Menu Display System Challenge
+# CodeCuisine Menu Display System Challenge
 
-You will:
-1. Use the provided Starter Code Repository: https://github.com/CodeSpace-Academy/Module_6_StudentNo_Classcode_Group_Name-Surname_JSL06
-2. Code your solution.
-3. Commit changes to your GitHub repository.
-4. Submit the GitHub Repository Link to the LMS [JSL06] Submission Project Tab.
+Welcome to Faith Rampete's Fine Dining Restaurant! This repository contains a JavaScript solution for displaying a dynamic menu on the restaurant's website and managing customer orders. Let's explore how the code works and how it can enhance the dining experience at our restaurant.
 
-In this coding challenge, you will build a simple menu display system for a fictional UberEats restaurant called "CodeCuisine." The goal is to display different categories of food items and allow users to add items to their order with a click. This challenge will help you apply various JavaScript concepts, including functions, closures, and event handling, to create an interactive menu.
+## Overview
+The menu code allows us to showcase our restaurant's offerings in various categories such as Starters, Main Courses, and Desserts. Customers can view the menu items and easily add them to their order. Additionally, the code includes a feature to remove items from the order list by double-clicking.
 
-![alt text](JSL06-solution.gif)
+### How the Code Works
+1. ***Menu Object:*** The menu object contains categories as keys and arrays of respective items as values.
+2. ***Displaying Menu Items:*** The displayMenuItems(menu) function dynamically generates HTML elements to display the menu items on the webpage. It iterates over each category and its items, creating appropriate HTML elements for each.
+3. ***Adding Items to Order:*** When a customer clicks on a menu item, the addToOrder(itemName) function is triggered. It adds the selected item to the order list and updates the total order amount.
+4. ***Removing Items from Order:*** The code now includes functionality to remove items from the order list. Customers can double-click on an item in the order list to remove it. This feature enhances the user experience by providing a convenient way to modify orders.
 
-## Objectives:
+### Methods/Functions Used
+1. ***getElementById('menu')***: Retrieves the menu container element.
+2. ***Object.entries(menu)***: Converts the menu object into an array of key-value pairs.
+3. ***document.createElement('elementName')***: Creates new HTML elements.
+4. ***element.textContent = value***: Sets the text content of HTML elements.
+5. ***element.appendChild(childElement)***: Appends child elements to parent elements.
+6. ***forEach(callback)***: Iterates over elements in an array.
+7. ***addEventListener(event, callback)***: Adds event listeners to HTML elements.
+8. ***parseFloat(string)***: Parses strings into floating-point numbers.
+9. ***toFixed(decimalPlaces)***: Formats numbers to a fixed number of decimal places.
+10. ***initMenuSystem()***: Function call to initialize the menu system.
 
-- Create and use functions to dynamically populate the menu items on the page.
-- Implement a callback function to handle adding items to the order.
-- Use closures to maintain the state of the order.
-- Utilize function expressions and anonymous functions.
-- Call built-in functions and create custom functions to manage the menu and order system.
+## Additional Features
+To remove items from the order list by double-clicking, add the following code:
 
-## Instructions:
+// Function to remove item from order list
+function removeFromOrder(item) {
+    item.remove(); // Removes the item element from the DOM
+    const currentTotal = parseFloat(orderTotalElem.textContent);
+    const itemPrice = 90; // Assuming R90 per item
+    const newTotal = (currentTotal - itemPrice).toFixed(2);
+    orderTotalElem.textContent = newTotal;
+}
 
-1. **Use the Project Files:** Begin by accessing the starter code in the JSL06 GitHub repo.
+// Event listener to remove item from order list on double click
+orderItemsList.addEventListener('dblclick', (event) => {
+    if (event.target.tagName === 'LI') {
+        removeFromOrder(event.target);
+    }
+});
+This code adds an event listener to the order items list. When a customer double-clicks on an item (<li> element), it triggers the removeFromOrder function, which removes the item from the order list and updates the total order amount accordingly.
 
-2. **JavaScript Implementation**: Use the provided starter code in `index.js` as a foundation for your application. The starter code contains placeholders for key functions and comments to guide you through the implementation.
+### What I Learned
+**Through accomplishing this task, I learned:**
 
-    - `menu`: The `menu` object contains sample menu data, including categories and items. You can expand this menu with more items if needed.
-
-    - `displayMenuItems(menu)`: This function should dynamically create and display menu items grouped by category. Iterate over the `menu` object and create HTML elements for each category and item. Attach event listeners to the menu items to handle adding items to the order.
-
-    - `addToOrder(itemName)`: Implement this callback function to update the order summary when an item is added. You can use closures to maintain the state of the order. Calculate and update the total price accordingly.
-
-    - `initMenuSystem(menu)`: Call the `displayMenuItems` function with the menu data and attach event listeners to menu items.
-
-3. **Testing**: Thoroughly test your application to ensure that it can correctly add items to the order and that the order total updates as expected.
-
-## What You Need to Do:
-
-To complete this challenge, follow these steps:
-
-1. Clone the provided Starter Code Repository to your local development environment: [Starter Code Repository](https://github.com/CodeSpace-Academy/Module_6_StudentNo_Classcode_Group_Name-Surname_JSL06).
-2. Open the cloned project in your code editor.
-3. Code your solution following the provided instructions and comments in the starter code.
-4. Commit your changes to your local Git repository with meaningful commit messages.
-5. Push your local Git repository to your GitHub account.
-6. Verify that the changes have been successfully pushed to your GitHub repository.
-
-## What You Need to Include:
-
-1. Ensure that your code includes the necessary modifications to meet the challenge requirements.
-2. Your GitHub repository should contain the updated code files.
-
-## How We'll Assess Your Work:
-
-1. We will review your GitHub repository to ensure that it contains the updated code files.
-2. We will assess the modifications made to the code to verify that they effectively meet the challenge requirements.
-3. We will consider the commit history and meaningful commit messages to evaluate your coding process.
-
-By following these steps and completing the challenge, you will demonstrate your ability to create interactive web applications using JavaScript. Good luck, and enjoy building the CodeCuisine Menu Display System!
+1. How to dynamically generate and manipulate HTML elements using JavaScript.
+2. Techniques for iterating over objects and arrays to perform specific actions.
+3. Event handling in JavaScript, such as adding click and double-click event listeners.
+4. Parsing and formatting numerical data for calculations and display.
+5. The importance of user experience and how to implement features to enhance it, like removing items from the order list.
