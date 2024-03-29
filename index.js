@@ -10,3 +10,25 @@ const menu = {
     const menuContainer = document.getElementById('menu');
     
   }  
+
+  //Loop through each  category and its items in the menu object
+  for (const [category, items] of Object.entries(menu)) { 
+    const categoryElement = document.createElement('h3'); 
+    categoryElement.textContent = category; 
+    menuContainer.appendChild(categoryElement); 
+    const listElement = document.createElement('ul');
+    
+    //Loop through items in the category
+    items.forEach(item => { 
+      const listItem = document.createElement('li'); 
+      listItem.textContent = item; 
+
+      //Add click event listener to each item to trigger addToOrder function
+      listItem.addEventListener('click', () => addToOrder(item)); 
+      listElement.appendChild(listItem); 
+    }); 
+    menuContainer.appendChild(listElement); 
+  } 
+ 
+
+
