@@ -9,4 +9,4 @@ const menu = {
   function displayMenuItems(menu) { 
     const menuContainer = document.getElementById('menu');
     
-    
+  }  
