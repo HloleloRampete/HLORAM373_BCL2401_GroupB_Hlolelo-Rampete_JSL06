@@ -1,4 +1,6 @@
-//Menu object containing categories and their respective items 
+//Menu object containing categories and their respective items
+/* The menu object contains categories  as keys, 
+and their respective items stored as arrays.*/ 
 const menu = { 
     Starters: ['Garlic Bread', 'Bruschetta'], 
     MainCourses: ['Margherita Pizza', 'Spaghetti Carbonara', 'Steak and Fries'], 
@@ -48,3 +50,17 @@ const menu = {
   } 
   
   initMenuSystem();
+
+
+// Methods/Functions Used:
+
+// getElementById('menu'): Retrieves the container element where the menu will be displayed.
+// Object.entries(menu): Converts the menu object into an array of its key-value pairs for iteration.
+// document.createElement('elementName'): Creates a new HTML element.
+// element.textContent = value: Sets the text content of an HTML element.
+// element.appendChild(childElement): Appends a child element to a parent element.
+// forEach(callback): Iterates over each element in an array and executes a callback function.
+// addEventListener(event, callback): Adds an event listener to an HTML element.
+// parseFloat(string): Parses a string argument and returns a floating-point number.
+// toFixed(decimalPlaces): Formats a number using fixed-point notation and specifies the number of decimal places.
+// initMenuSystem(): Function call to initialize the menu system when the page loads.
